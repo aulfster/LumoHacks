@@ -179,6 +179,19 @@
         // [START_EXCLUDE silent]
         document.getElementById('quickstart-sign-in').disabled = false;
         // [END_EXCLUDE]
+
+      var firebaseRef = firebase.database().ref();
+      var user = firebase.auth().currentUser;
+      var userid = user.uid;
+      var useremail = user.email;
+      //var name = document.getElementById('firstname');
+      //var lastname = document.getElementById('lastname');
+
+      //firebaseRef.child("Users").child(userid).child("name").set("lastname");
+      firebaseRef.child("Users").child(userid).set(useremail);
+      firebaseRef.child("Users").child(userid).child("Recipes").set("0");
+
+
       });
       // [END authstatelistener]
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
@@ -189,7 +202,24 @@
     window.onload = function() {
       initApp();
     };
+
+
+    /*
+    function signInProfile() {
+      var isTrue = document.getElementById("quickstart-sign-in-status").textContent;
+
+      if(isTrue == "Signed out"){
+          window.location.assign("user_profile.html");
+      }
+    }
+    */
   </script>
+
+
+
+
+
+
 </head>
 
 
@@ -216,19 +246,21 @@
 
       <!-- Container for the demo -->
       <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <!--
-        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
-          <h2 class="mdl-card__title-text">Log In</h2>
-        </div> -->
+  
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
           <p style="color: black">Sign in to an existing account or click sign up.</p>
 
           <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
           &nbsp;&nbsp;&nbsp;
           <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
+         <!--
+          <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="firstname" name="firstname" placeholder="Firstname"/>
+          <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="lastname" name="lastname" placeholder="Lastname"/> -->
+
           <br/><br/>
-          <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
+          <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin" onclick="location.href='user_profile.html'">Sign In</button>
           &nbsp;&nbsp;&nbsp;
+
           <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
 
           &nbsp;&nbsp;&nbsp;
