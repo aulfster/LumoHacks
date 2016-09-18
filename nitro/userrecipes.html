@@ -71,19 +71,19 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="images/logoSmall.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
+			<h1 id="fh5co-logo"><a href="index.html"><img src="images/logo.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="recipes.html">Recipes</a></li>
-				<li class="fh5co-active"><a href="recipe-submit.html"> Submit Recipe </a></li>
-				<li><a href="https://deborahzhang15.discussion.community/">Forum</a></li>
-			</ul>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
 			</nav>
 
 			<div class="fh5co-footer">
+				<p><small>&copy; 2016 Nitro Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span> <span>Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></small></p>
 				<ul>
-					<li id="loginsignup"><a target="_blank" href="firebase.html">Login/Signup</a></li><br>
 					<li><a href="#"><i class="icon-facebook"></i></a></li>
 					<li><a href="#"><i class="icon-twitter"></i></a></li>
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
@@ -99,15 +99,30 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box" data-animate-effect="fadeInLeft">
 						<div class="col-md-9 col-md-push-3">
-							<h1>Submit Recipe</h1>
-							<form id="recipeForm" method="post" action="" >
-								<input id="username" type="text" placeholder="   Your username"><br><br>
-								<input id="recipetitle" type="text" placeholder="   Recipe Title"><br><br>
-								<input id="ingredients" class="tallBox" type="text" placeholder="   Ingredients"><br><br>
-								<input id="instructions" class="tallBox" type="text" placeholder="   Instructions" height="300px"><br><br>
-								<input id="recipeSubmit" type="submit" placeholder="Submit">&nbsp;
-								<input type="reset" placeholder="Reset">
-							</form>
+							<h1>Submit recipe</h1>
+							<form action="local.asp" method="post" name="b1">
+								<Select Name="options" onChange="b1.input1.value=b1.select_business[this.selectedIndex].text">
+								<option value="5102" name="float">Company One</option>
+								<option value="5053" name="float">Company Two</option>
+								<option value="5091" name="float">Company 3</option>
+								</select>
+								<input value="Submit" type="submit" onchange="this.form.submit()">
+								</form>
+
+								<?php
+
+								file_put_contents("local.txt", $_POST['float'], FILE_APPEND);
+
+								$g = file_get_contents("local.txt");
+								echo $g;
+
+								$r = $_REQUEST['float'];
+								$r .= $_POST['option'];
+
+								echo $r;
+
+
+								?>
 						</div>
 					</div>
 				</div>
@@ -115,6 +130,9 @@
 		</div>
 	</div>
 
+
+	<!--Recipe-->
+	<!--<script src="js/jquery.recipe.js"></script>-->
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -129,6 +147,8 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
+	<!-- Recipe -->
+	<script src="js/recipesubmit.js"></script>
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
