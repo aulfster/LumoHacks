@@ -204,20 +204,15 @@
     };
 
 
+    /*
     function signInProfile() {
       var isTrue = document.getElementById("quickstart-sign-in-status").textContent;
 
       if(isTrue == "Signed out"){
-        try{
-          window.location = "user_profile.html";
-        }
-        catch(exception){
-          if (exception instanceof NetworkError){
-            
-          }
-        }     
+          window.location.assign("user_profile.html");
       }
     }
+    */
   </script>
 
 
@@ -263,7 +258,7 @@
           <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="lastname" name="lastname" placeholder="Lastname"/> -->
 
           <br/><br/>
-          <button onclick="signInProfile()" disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
+          <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin" onclick="location.href='user_profile.html'">Sign In</button>
           &nbsp;&nbsp;&nbsp;
 
           <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
