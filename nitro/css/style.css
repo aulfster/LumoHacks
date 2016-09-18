@@ -7,7 +7,7 @@
 }
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *	Edit this section
 *
 * ======================================================= */
@@ -37,6 +37,13 @@ a:hover, a:active, a:focus {
 
 p {
   margin-bottom: 1.5em;
+}
+
+#banner {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -220,7 +227,7 @@ figure {
 }
 
 #fh5co-main {
-  width: 85%;
+  width: 84.5%;
   float: right;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
@@ -238,7 +245,7 @@ figure {
 }
 #fh5co-main .fh5co-narrow-content {
   position: relative;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   padding: 4em 0;
 }
